@@ -62,7 +62,7 @@ class AppCentury extends StatelessWidget {
                         ));
                       }
                     } else {
-                      if (loginText == '' || passwordText == '') {
+                      if (loginText.isEmpty || passwordText.isEmpty) {
 
                           scaffoldKey.currentState.showSnackBar(new SnackBar(
                             content: Text('Заполните все поля'),
