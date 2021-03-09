@@ -13,15 +13,24 @@ class AppCentury extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Приложение века'),
+          title: Text('Вход'),
           centerTitle: true,
         ),
         key: scaffoldKey,
         body: Center(
           child: Column(
+
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+
               new Container(
+                child: Text('Приложение века',
+                style:TextStyle(fontSize: 22.0,fontWeight:FontWeight.bold),
+                  ),
+              ),
+              new Container(
+                padding: new EdgeInsets.only(left: 16,right: 16,),
+
                 child: TextFormField(
                   decoration: new InputDecoration(labelText: 'Login'),
                   keyboardType: TextInputType.text, //
@@ -29,9 +38,11 @@ class AppCentury extends StatelessWidget {
                   onChanged: (text) {
                     loginText = text;
                   },
+
                 ),
               ),
               new Container(
+                padding: new EdgeInsets.only(left: 16,right: 16,),
                 child: TextFormField(
                     decoration: new InputDecoration(labelText: 'Password'),
                     obscureText: true,
@@ -81,11 +92,37 @@ class AppCentury extends StatelessWidget {
                           label: 'ok',
                           onPressed: () {},
                         ),
-                      ));
+                      )
+                      );
                     }
                   },
                 ),
+
               ),
+        new Padding(
+          padding: new EdgeInsets.only(top: 32.0),
+          child: new MaterialButton(
+
+            height: 50.0,
+            minWidth: 150.0,
+            child: new Text(
+              "Регистрация",
+              style: TextStyle(color: Colors.blue,background:Paint()..color = Colors.white70 ),
+            ),
+            onPressed: (){
+              scaffoldKey.currentState.showSnackBar(new SnackBar(content: Text('Регистрация скоро станет доступна'),
+                  action:SnackBarAction(
+                    label: 'Ok',
+                    onPressed: (){},
+                  ),
+              )
+              );
+
+
+
+            },
+          ),
+        ),
             ],
           ),
         ),
