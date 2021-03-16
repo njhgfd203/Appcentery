@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(deckslist());
+void main() => runApp(DecksList());
 
-class deckslist extends StatelessWidget {
+class DecksList extends StatelessWidget {
+  Widget _buildTodoitem({@required String title, description,data}){
+      return ListTile(
+          title: Text(title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),),
+        subtitle: Text(description,style: TextStyle(fontSize: 15),),
+        trailing: Text(data),
+
+      ) ;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,98 +25,22 @@ class deckslist extends StatelessWidget {
                 icon: Icon(
                   Icons.input,
                 ),
-                onPressed: () {},
+                onPressed: () {Navigator.of(context).pop();},
               ),
             ],
 
           ),
+
           body: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                new Container(
-                  padding: new EdgeInsets.only(
-                    left: 20,
-                    right: 40,
-                  ),
-                  child: Text(
-                    '1. Сделать математику.',
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                new Container(
-                  padding: new EdgeInsets.only(
-                    left: 10,
-                    right: 10,
-                  ),
-                  child: Text(
-                    'Сделать один вариант ЕГЭ по математике и еще задания ,которые дала Вера Николаевна.',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w100,
-                    ),
-                  ),
-                ),
-                new Container(
-                  padding: new EdgeInsets.only(
-                  left: 300,
+            children:<Widget> [
+              _buildTodoitem(title: '1. Сделать математику.',description:'Сделать один вариант ЕГЭ по математике и еще задания, которые дала Вера Николаевна.' ,data:'Выполнить до 22:00'),
+              _buildTodoitem(title: '2.Подготовится к репетиции',description:'Выучить все партии к песням на воскресенье',data:'Выполнить до 19:00'),
+              _buildTodoitem(title: '3.Погулять собаку',description:'',data:'Выполнить до 20:00')
 
-                  top: 10,
-                ),
-                  child:Text('Выполнить до 19:00')
-                ),
-                new Container(
-                  padding: new EdgeInsets.only(
-                    left: 20,
 
-                    top: 20,
-                  ),
-                  child: Text(
-                    '2.Подготовится к репетиции',
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold,),
-                  ),
-                ),
-                new Container(
-                  padding: new EdgeInsets.only(
-                    left: 10,
-                    right: 10,
 
-                  ),
-                  child: Text(
-                    'Выучить все партии к песням на воскресенье'
-                        ,
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w100,
-                    ),
-                  ),
-                ),
-                new Container(
-                    padding: new EdgeInsets.only(
-                      left: 300,
+            ],
 
-                      top: 10,
-                    ),
-                    child:Text('Выполнить до 22:00')
-                ),
-                new Container(
-                  padding: new EdgeInsets.only(
-                    left: 20,
-                    right: 40,
-                  ),
-                  child: Text(
-                    '3.Погулять собаку',
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                new Container(
-                    padding: new EdgeInsets.only(
-                      left: 300,
-
-                      top: 10,
-                    ),
-                    child:Text('Выполнить до 20:00')
-                ),
-              ]
           )
       ),
     );
